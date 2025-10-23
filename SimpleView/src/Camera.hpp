@@ -1,9 +1,3 @@
-/*
- * Description: SimpleView reference design
- * Author: HBF
- * Version: 2025-09-30
- */
-
 #ifndef CCAMERA_H
 #define CCAMERA_H
 

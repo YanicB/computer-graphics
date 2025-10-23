@@ -1,9 +1,3 @@
-/*
- * Description: SimpleView reference design
- * Author: HBF
- * Version: 2025-09-30
- */
-
 #ifndef CWORLD_HPP
 #define CWORLD_HPP
 

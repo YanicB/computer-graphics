@@ -1,15 +1,25 @@
 #include "World.hpp"
 #include "Cube.hpp"
+#include "Pyramid.hpp"
+#include "House.hpp"
 
 using namespace std;
 
 World::World() {
-/* add Cube into the world object list */
 	Shape *obj = new Cube();
 	obj->setId(1);
+	obj->translate(0.0, 0.0, -3.0);  // Cube on z-axis
 	objlist.push_back(obj);
 
-	// add more objects
+	obj = new Pyramid();
+	obj->setId(2);
+	obj->translate(0.0, 0.0, 0.0);   // Pyramid at origin
+	objlist.push_back(obj);
+	
+	obj = new House();
+	obj->setId(3);
+	obj->translate(0.0, 0.0, 3.0);   // House on z-axis
+	objlist.push_back(obj);
 
 }
 

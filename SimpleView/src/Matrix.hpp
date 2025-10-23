@@ -1,8 +1,4 @@
-/*
- * Description: SimpleView reference design
- * Author: HBF
- * Version: 2025-09-30
- */
+
 #ifndef CMATRIX_H
 #define CMATRIX_H
 

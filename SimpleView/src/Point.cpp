@@ -1,8 +1,4 @@
-/*
- * Description: SimpleView reference design
- * Author: HBF
- * Version: 2025-09-30
- */
+
 #include "Point.hpp"
 #include <math.h>
 #include <stdio.h>

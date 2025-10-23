@@ -1,9 +1,3 @@
-/*
- * Description: SimpleView reference design
- * Author: HBF
- * Version: 2025-09-30
- */
-
 #include <stdio.h>
 #include "Camera.hpp"
 #include "Matrix.hpp"
@@ -19,7 +13,7 @@ Camera::Camera(){
 	setViewNorm();
 }
 
-void Camera::reset(void) { // make default camera
+void Camera::reset(void) { 
 	eye.set(5.0, 5.0, 10.0);
 	ref.set(0, 0, 0);
 	viewup.set(0, 0, 1);
@@ -48,11 +42,33 @@ void Camera::setViewNorm() {
 }
 
 void Camera::rotate(GLfloat rx, GLfloat ry, GLfloat rz, GLfloat angle){
-// rotate eye position in WCS
+	Matrix m;
+	m.rotateMatrix(rx, ry, rz, angle);
+	
+	GLfloat v[4];
+	v[0] = eye.x - ref.x;
+	v[1] = eye.y - ref.y;
+	v[2] = eye.z - ref.z;
+	v[3] = 1.0f;
+	
+	m.multiplyVector(v);
+	
+	eye.x = v[0] + ref.x;
+	eye.y = v[1] + ref.y;
+	eye.z = v[2] + ref.z;
+	
+	setViewNorm();
 }
 
 void Camera::translate(GLfloat tx, GLfloat ty, GLfloat tz) {
-// translate eye position in WCS
+	eye.x += tx;
+	eye.y += ty;
+	eye.z += tz;
+	
+	ref.x += tx;
+	ref.y += ty;
+	ref.z += tz;
+	
 }
 
 void Camera::setProjectionMatrix() {

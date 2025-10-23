@@ -1,8 +1,4 @@
-/*
- * Description: SimpleView reference design
- * Author: HBF
- * Version: 2025-09-30
- */
+
 
 #include "Shape.hpp"
 #include <stdio.h>
@@ -40,7 +36,22 @@ void Shape::rotate(GLfloat rx, GLfloat ry, GLfloat rz, GLfloat angle) {
 
 
 void Shape::rotate(GLfloat x0, GLfloat  y0, GLfloat  z0, GLfloat  rx, GLfloat  ry, GLfloat rz,  GLfloat  angle) {
-	// your implementation
+	Matrix m;
+	m.rotateMatrix(rx, ry, rz, angle);
+	
+	mc.matrixPreMultiply(&m);
+	
+	GLfloat v[4];
+	v[0] = mc.mat[0][3] - x0;
+	v[1] = mc.mat[1][3] - y0;
+	v[2] = mc.mat[2][3] - z0;
+	v[3] = 1.0f;
+	
+	m.multiplyVector(v);
+	
+	mc.mat[0][3] = v[0] + x0;
+	mc.mat[1][3] = v[1] + y0;
+	mc.mat[2][3] = v[2] + z0;
 }
 
 

@@ -1,9 +1,3 @@
-/*
- * Description: SimpleView reference design
- * Author: HBF
- * Version: 2025-09-30
- */
-
 #ifndef MENU_HPP_
 #define MENU_HPP_
 
